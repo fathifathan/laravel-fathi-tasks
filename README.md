@@ -59,3 +59,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## About Vendor
+
+vendor cannot be uploaded on github so you have to install vendor yourself at https://getcomposer.org/download/ to be able to run your laravel project

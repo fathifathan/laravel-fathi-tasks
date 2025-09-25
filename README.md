@@ -1,6 +1,6 @@
 # laravel-fathi-tasks
 
-Laravel Campus Tasks
+
 📌 Deskripsi
 
 Repository ini berisi kumpulan tugas dan project Laravel untuk perkuliahan.
@@ -12,13 +12,13 @@ Tugas 1: ?
 
 Tugas 2: ?
 
-Tugas 3: Blade Template & Layout
+Tugas 3: ?
 
-Tugas 4: Middleware dan Authentication
+Tugas 4: ?
 
-UTS: Mini Project Laravel
+UTS: ?
 
-UAS: Final Project Laravel
+UAS: ?
 
 ⚙️ Requirement
 

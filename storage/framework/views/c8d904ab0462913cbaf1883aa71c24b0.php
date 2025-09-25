@@ -1,0 +1,1 @@
+<?php /**PATH C:\laragon\www\demolaravel\resources\views/demoff.blade.php ENDPATH**/ ?>

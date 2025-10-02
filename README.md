@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/img/logo.png" width="250" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://www.instagram.com/fathifathan_/" target="_blank"><img src="public/img/logo.png" width="300" alt="uag Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>

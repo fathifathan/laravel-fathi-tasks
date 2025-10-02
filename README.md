@@ -10,14 +10,14 @@
 # Week 03 Assignment - Web Framework (Laravel)
 
 ## Student Information
-- **Name** : [Nama Kamu]
-- **NIM**  : [NIM Kamu]
+- **Name** : Fathi Fathan Fathurrahman Nuryadin
+- **NIM**  : 2310130005
 
 ## Description
-This repository contains the Week 03 assignment for the Web Framework class.  
-The task is to replace native PHP views with Laravel Blade templates,  
-and implement all routes with their corresponding views.  
-Bootstrap is used for front-end design.
+This repository contains assignments for the Web Framework class.
+The assignment is to replace the native PHP views with Laravel Blade templates,
+and implement all routes with the appropriate views.
+Bootstrap is used for the front-end design.
 
 ## Routes
 - `/` → Home

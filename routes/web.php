@@ -1,6 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MahasiswaController;
+
+Route::get('/dbfacade', [MahasiswaController::class, 'index']);
+Route::get('/insert-sql', [MahasiswaController::class, 'insertSql']);
+Route::get('/insert-binding', [MahasiswaController::class, 'insertBinding']);
+Route::get('/update', [MahasiswaController::class, 'update']);
+Route::get('/delete', [MahasiswaController::class, 'delete']);
+Route::get('/select', [MahasiswaController::class, 'select']);
+Route::get('/select-view', [MahasiswaController::class, 'selectView']);
+Route::get('/select-where', [MahasiswaController::class, 'selectWhere']);
+Route::get('/statement', [MahasiswaController::class, 'statement']);
+
+//  MINI STUDY CASE
+Route::get('/student', [MahasiswaController::class, 'indexQB']);
+Route::get('/student/{nim}', [MahasiswaController::class, 'showQB']);
+
 
 // Default
 Route::get('/', function () {

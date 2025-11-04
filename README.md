@@ -19,9 +19,9 @@ The assignment is to replace the native PHP views with Laravel Blade templates,
 and implement all routes with the appropriate views.
 Bootstrap is used for the front-end design.
 
-## 🚀 Fitur yang Baru Ditambahkan
+##  Fitur yang Baru Ditambahkan
 
-### 🧠 1. MahasiswaController
+###  1. MahasiswaController
 File: `app/Http/Controllers/MahasiswaController.php`  
 Menangani seluruh proses pengambilan dan penampilan data mahasiswa.
 
@@ -35,7 +35,7 @@ Controller ini menggunakan **DB Facade** dan **Query Builder** untuk berinteraks
 
 ---
 
-### 🧱 2. Migration — `create_students_table.php`
+###  2. Migration — `create_students_table.php`
 File: `database/migrations/xxxx_xx_xx_xxxxxx_create_students_table.php`
 
 Membuat tabel `students` dengan struktur:
@@ -51,17 +51,17 @@ Membuat tabel `students` dengan struktur:
 
 ---
 
-### 🎨 3. Views (Tampilan)
+###  3. Views (Tampilan)
 
-#### 🧩 `resources/views/data-mahasiswa.blade.php`
+####  `resources/views/data-mahasiswa.blade.php`
 Menampilkan daftar mahasiswa (Week 7 – DB Facade).  
 Digunakan oleh fungsi `selectView()` dan `selectWhere()`.
 
-#### 🧩 `resources/views/universitas/index-student.blade.php`
+####  `resources/views/universitas/index-student.blade.php`
 Menampilkan daftar mahasiswa (Week 8 – Query Builder).  
 Setiap nama mahasiswa dapat diklik untuk melihat detailnya.
 
-#### 🧩 `resources/views/universitas/detail-student.blade.php`
+####  `resources/views/universitas/detail-student.blade.php`
 Menampilkan detail satu mahasiswa berdasarkan NIM.  
 Ditampilkan ketika user mengklik nama mahasiswa dari halaman index.
 
@@ -76,12 +76,14 @@ Route baru yang ditambahkan:
 Route::get('/student', [MahasiswaController::class, 'indexQB']);
 Route::get('/student/{nim}', [MahasiswaController::class, 'showQB']); 
 
+---
 
 ## How to Run
 1. Clone this repository  
    ```bash
    git clone <repo-url>
 
+---
 
 ## About Vendor
 

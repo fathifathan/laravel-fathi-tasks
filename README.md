@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Week 07 Running Task Update - Web Framework (Laravel)
+# Week 08 Running Task Update - Web Framework (Laravel)
 
 ## Student Information
 - **Name** : Fathi Fathan Fathurrahman Nuryadin
@@ -21,40 +21,57 @@ Bootstrap is used for the front-end design.
 
 ##  Fitur yang Baru Ditambahkan
 
-###  1. MahasiswaController
-File: `app/Http/Controllers/MahasiswaController.php`  
-Menangani seluruh proses pengambilan dan penampilan data mahasiswa.
+## 1. Mahasiswa Model (Eloquent ORM + Soft Delete)
+File: `app/Models/Mahasiswa.php`
 
-**Fungsi utama:**
-- `selectView()` → menampilkan semua data mahasiswa (`students`)
-- `selectWhere()` → menampilkan data mahasiswa dengan IPK > 3
-- `indexQB()` → menampilkan daftar mahasiswa (Week 8)
-- `showQB($nim)` → menampilkan detail mahasiswa berdasarkan NIM
+Model ini menggantikan seluruh operasi database manual sebelumnya.
 
-Controller ini menggunakan **DB Facade** dan **Query Builder** untuk berinteraksi dengan tabel `students`.
+### Fitur pada Model:
+- Menggunakan **Eloquent ORM**
+- Mengaktifkan **Soft Deletes**
+- Menentukan `$fillable` untuk mass assignment
+- Mengarah ke tabel `students`
+
+### Cuplikan kode:
+```php```
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Mahasiswa extends Model
+{
+    use SoftDeletes;
+
+    protected $table = 'students';
+
+    protected $fillable = [
+        'nim', 'nama', 'email', 'tanggal_lahir', 'ipk',
+        'jenis_kelamin', 'jurusan', 'alamat'
+    ];
+}
 
 ---
 
-###  2. Migration — `create_students_table.php`
-File: `database/migrations/xxxx_xx_xx_xxxxxx_create_students_table.php`
+###  2. MahasiswaController (Eloquent CRUD)
+File: `app/Http/Controllers/MahasiswaController.php`
 
-Membuat tabel `students` dengan struktur:
+Seluruh operasi CRUD kini menggunakan Eloquent ORM, bukan lagi DB Facade.
 
-| Kolom | Tipe Data | Keterangan |
-|-------|------------|------------|
-| `id` | bigint (auto increment) | Primary Key |
-| `nim` | char(8) | Nomor Induk Mahasiswa |
-| `nama` | varchar | Nama lengkap mahasiswa |
-| `tanggal_lahir` | date | Tanggal lahir |
-| `ipk` | decimal(3,2) | Indeks Prestasi Kumulatif |
-| `created_at` / `updated_at` | timestamp | Otomatis diisi oleh Laravel |
+Fitur Utama:
+- Mahasiswa::create() → tambah data
+- $mhs->update() → update data
+- $mhs->delete() → soft delete
+- Mahasiswa::all() → mengambil semua data
+- where() dan orderBy() → filter dan sorting
+- Validasi menggunakan Form Request
 
 ---
 
-###  3. Views (Tampilan)
+###  3. Migration — Soft Delete Support
+File: `database/migrations/xxxx_xx_xx_create_students_table.php`
+telah ditambahkan: `$table->softDeletes();`
 
 ####  `resources/views/data-mahasiswa.blade.php`
-Menampilkan daftar mahasiswa (Week 7 – DB Facade).  
+Menampilkan daftar mahasiswa (Week 8 – DB Facade).  
 Digunakan oleh fungsi `selectView()` dan `selectWhere()`.
 
 ####  `resources/views/universitas/index-student.blade.php`
@@ -75,6 +92,12 @@ Route baru yang ditambahkan:
 ```php```
 Route::get('/student', [MahasiswaController::class, 'indexQB']);
 Route::get('/student/{nim}', [MahasiswaController::class, 'showQB']); 
+
+---
+### documentaion
+<img width="1463" height="391" alt="Cuplikan layar 2025-11-18 133026" src="https://github.com/user-attachments/assets/c541beb7-715b-48b1-825c-c917627f8f43" />
+<img width="723" height="844" alt="image" src="https://github.com/user-attachments/assets/e277954e-20ee-4152-988a-d526114ed584" />
+
 
 ---
 

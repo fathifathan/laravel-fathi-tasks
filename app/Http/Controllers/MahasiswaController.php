@@ -197,8 +197,23 @@ class MahasiswaController extends Controller
     public function prosesFormRequest(DaftarMahasiswa $request)
     {
         $validateData = $request->validated();
+
+        // PROSES UPLOAD FOTO
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $namaFile = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/uploads', $namaFile);
+
+            // simpan nama file ke array data
+            $validateData['foto'] = $namaFile;
+        }
+
         Mahasiswa::create($validateData);
 
-        return redirect('/form')->with('success', "Data berhasil masuk lewat Form Request!");
+        return redirect('/form')->with(
+            'success',
+            "Pendaftaran berhasil dan foto berhasil diupload "
+        );
     }
+
 }
